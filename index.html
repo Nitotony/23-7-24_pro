@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BG color changer</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        #alpha {
+            width: 600px;
+            height: 300px;
+            background-color: red;
+            padding: 100px;
+            margin: 100px auto;
+            border-radius: 20px;
+        }
+
+        #head {
+            width: 300px;
+            margin: 20px auto;
+            background-color: black;
+            padding: 5px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        #head-key {
+            color: white;
+            font-size: larger;
+        }
+
+        #head-value {
+            color: aquamarine;
+            font-size: larger;
+        }
+        button{
+            background-color: black;
+            color: white;
+            padding: 5px;
+            border-radius: 10px;
+           text-align: center;
+           margin-right: 250px;
+           margin-left: 250px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="alpha">
+        <div id="head">
+            <span id="head-key">Background Color :</span>
+            <span id="head-value">Red</span>
+        </div>
+
+        <button onclick="change()">click me !</button>
+    </div>
+
+</body>
+
+<script>
+    let count = 1;
+
+    function change() {
+        const alpha = document.getElementById('alpha');
+        const headval = document.getElementById('head-value');
+
+        switch (count) {
+            case 0:
+                alpha.style.backgroundColor = "red";
+                headval.innerHTML = "Red";
+                break;
+            case 1:
+                alpha.style.backgroundColor = "blue";
+                headval.innerHTML = "Blue";
+                break;
+            case 2:
+                alpha.style.backgroundColor = "green";
+                headval.innerHTML = "Green";
+                break;
+            default:
+                alpha.style.backgroundColor = "red";
+                headval.innerHTML = "Red";
+                count = 0;
+        }
+
+        count = (count + 1) % 3;
+    }
+</script>
+</html>
